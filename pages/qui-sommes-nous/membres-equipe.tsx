@@ -2,6 +2,8 @@ import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import FilAriane from "../../components/Common/FilAriane";
 import Header1 from "../../components/Common/Header1";
+import MembreCard from "../../components/Membre/MembreCard";
+import MembreItems from "../../components/Membre/MembreItems";
 import { FilArianeInterface } from "../../utils/interface";
 
 export type MembreProps = {
@@ -62,6 +64,7 @@ const membresEquipe = (
                         <Header1 text1="Membres de" text2="l'équipe" />
                         <FilAriane filArianes={filArianes} />
                     </div>
+                    <MembreItems membres={props.membres} />
                 </div>
             </div>
         </>

@@ -33,7 +33,7 @@ const NavbarDesktopDropdown = (props: Props) => {
 		}
 	};
 	return (
-		<div className="absolute top-[110%] z-10 w-full" ref={wrapperRef}>
+		<div className="absolute top-[110%] z-50 w-full" ref={wrapperRef}>
 			{props.menuItem.childrens.map((menuItemChild, j) => (
 				<div
 					key={j}
