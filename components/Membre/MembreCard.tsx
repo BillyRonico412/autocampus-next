@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImageUrl } from "../../utils/variables";
 
 type Props = {
     nom: string;
@@ -7,11 +8,11 @@ type Props = {
     titre: string;
 };
 
-const CardMembre = (props: Props) => {
+const MembreCard = (props: Props) => {
     return (
         <div className="flex justify-center relative w-[300px] shadow">
             <Image
-                src={`${process.env.NEXT_PUBLIC_URL_BACK}/assets/${props.image}`}
+                src={getImageUrl(props.image)}
                 alt={`Image ${props.nom} ${props.prenom}`}
                 width={300}
                 height={300}
@@ -28,4 +29,4 @@ const CardMembre = (props: Props) => {
     );
 };
 
-export default CardMembre;
+export default MembreCard;

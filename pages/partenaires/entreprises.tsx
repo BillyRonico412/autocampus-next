@@ -2,7 +2,8 @@ import Header2 from "../../components/Common/Header2";
 import { FilArianeInterface } from "../../utils/interface";
 import { IoMdBusiness } from "react-icons/io";
 import { InferGetStaticPropsType } from "next";
-import CardPartenaire from "../../components/Partenaire/CardPartenaire";
+import PartenaireCard from "../../components/Partenaire/PartenaireCard";
+import Head from "next/head";
 
 type StaticProps = {
     partenaires: {
@@ -48,14 +49,17 @@ const entreprises = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         },
     ];
     return (
-        <div>
+        <>
+            <Head>
+                <title>Entreprise</title>
+            </Head>
             <Header2 title="Entreprise partenaires" filArianes={filArianes}>
                 <IoMdBusiness className="text-6xl" />
             </Header2>
             <div className="container mx-auto px-4">
                 <div className="flex xl:grid xl:grid-cols-2 gap-x-8 flex-col gap-y-12 my-8">
                     {props.partenaires.map((partenaire, i) => (
-                        <CardPartenaire
+                        <PartenaireCard
                             description={partenaire.description}
                             lienExterne={partenaire.lienExterne}
                             logo={partenaire.logo}
@@ -65,7 +69,7 @@ const entreprises = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
                     ))}
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

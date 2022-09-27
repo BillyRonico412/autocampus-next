@@ -23,6 +23,7 @@ export const menuItems: MenuItemInterface[] = [
 
     {
         title: "Nos projets",
+        link: "/projets",
         childrens: [],
     },
     {
@@ -93,3 +94,5 @@ export const menuItems: MenuItemInterface[] = [
         childrens: [],
     },
 ];
+
+export const getImageUrl = (image: string) => `${process.env.NEXT_PUBLIC_URL_BACK}/assets/${image}`
