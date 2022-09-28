@@ -8,7 +8,7 @@ import {
     PartenaireProps,
     PartenaireTypeEnum,
     urlByPartenaireType,
-} from "./variable";
+} from "../../components/Partenaire/variable";
 
 export const getStaticProps = getStaticPropsApi<PartenaireProps>(
     urlByPartenaireType(PartenaireTypeEnum.Entreprises)

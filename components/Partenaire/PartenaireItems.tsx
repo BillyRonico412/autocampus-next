@@ -1,4 +1,4 @@
-import { PartenaireProps } from "../../pages/partenaires/variable";
+import { PartenaireProps } from "./variable";
 import LayoutCard from "../Common/LayoutCard";
 import PartenaireCard from "./PartenaireCard";
 

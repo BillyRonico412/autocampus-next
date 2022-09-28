@@ -6,7 +6,7 @@ import { FilArianeInterface } from "../../utils/interface";
 import { getStaticPropsApi } from "../../utils/variables";
 import {
     PartenaireProps, PartenaireTypeEnum, urlByPartenaireType
-} from "./variable";
+} from "../../components/Partenaire/variable";
 
 export const getStaticProps = getStaticPropsApi<PartenaireProps>(
     urlByPartenaireType(PartenaireTypeEnum.Laboratoires)
