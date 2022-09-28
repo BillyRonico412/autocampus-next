@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from "next";
+import { FaPeopleArrows } from "react-icons/fa";
 import Layout1 from "../../components/Common/Layout1";
 import MembreItems from "../../components/Membre/MembreItems";
 import { FilArianeInterface } from "../../utils/interface";
@@ -34,6 +35,7 @@ const membresEquipe = (
                 text1="Membres de"
                 text2="l'équipe"
                 filArianes={filArianes}
+                icons={<FaPeopleArrows className="text-3xl md:text-6xl" />}
             >
                 <MembreItems membres={props.items} />
             </Layout1>

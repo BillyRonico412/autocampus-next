@@ -53,7 +53,7 @@ const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             title="Projets"
             text1="Nos"
             text2="Projets"
-            icons={<FaProjectDiagram className="text-6xl" />}
+            icons={<FaProjectDiagram className="text-3xl md:text-6xl" />}
             filArianes={filArianes}
         >
             <div className="md:hidden">

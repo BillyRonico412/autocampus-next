@@ -9,8 +9,8 @@ type Props = {
 const Header1 = (props: Props) => {
     return (
         <div>
-            <h1 className="flex font-bold text-4xl">
-                <span>{props.text1}</span>{" "}
+            <h1 className="flex font-bold text-xl md:text-4xl">
+                <span>{props.text1}</span>
                 <span className="text-primary-old ml-2">{props.text2}</span>
                 <div className="ml-auto">{props.icons}</div>
             </h1>
