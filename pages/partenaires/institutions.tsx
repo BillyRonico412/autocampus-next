@@ -1,41 +1,18 @@
-import Header2 from "../../components/Common/Header2";
-import { FilArianeInterface } from "../../utils/interface";
-import { IoMdBusiness } from "react-icons/io";
 import { InferGetStaticPropsType } from "next";
-import PartenaireCard from "../../components/Partenaire/PartenaireCard";
-import Head from "next/head";
+import { IoMdBusiness } from "react-icons/io";
+import Layout2 from "../../components/Common/Layout2";
+import PartenaireItems from "../../components/Partenaire/PartenaireItems";
+import { FilArianeInterface } from "../../utils/interface";
+import { getStaticPropsApi } from "../../utils/variables";
+import {
+    PartenaireProps,
+    PartenaireTypeEnum,
+    urlByPartenaireType,
+} from "./variable";
 
-type StaticProps = {
-    partenaires: {
-        description: string;
-        lienExterne: string;
-        logo: string;
-        nom: string;
-    }[];
-};
-
-export const getStaticProps: () => Promise<{
-    props: StaticProps;
-}> = async () => {
-    try {
-        const partenaireRes = await fetch(
-            process.env.NEXT_PUBLIC_URL_BACK +
-                "/items/partenaire?filter[category][_eq]=Institutions"
-        );
-        return {
-            props: {
-                partenaires: (await partenaireRes.json()).data,
-            } as StaticProps,
-        };
-    } catch (e) {
-        console.log(e);
-        return {
-            props: {
-                partenaires: [],
-            },
-        };
-    }
-};
+export const getStaticProps = getStaticPropsApi<PartenaireProps>(
+    urlByPartenaireType(PartenaireTypeEnum.Institutions)
+);
 
 const institutions = (
     props: InferGetStaticPropsType<typeof getStaticProps>
@@ -52,25 +29,13 @@ const institutions = (
     ];
     return (
         <>
-            <Head>
-                <title>Institutions</title>
-            </Head>
-            <Header2 title="Institutions partenaires" filArianes={filArianes}>
-                <IoMdBusiness className="text-6xl" />
-            </Header2>
-            <div className="container mx-auto px-4">
-                <div className="flex xl:grid xl:grid-cols-2 gap-x-8 flex-col gap-y-12 my-8">
-                    {props.partenaires.map((partenaire, i) => (
-                        <PartenaireCard
-                            description={partenaire.description}
-                            lienExterne={partenaire.lienExterne}
-                            logo={partenaire.logo}
-                            nom={partenaire.nom}
-                            key={i}
-                        />
-                    ))}
-                </div>
-            </div>
+            <Layout2
+                title="Institutions"
+                filArianes={filArianes}
+                icons={<IoMdBusiness className="text-6xl" />}
+            >
+                <PartenaireItems partenaireItems={props.items} />
+            </Layout2>
         </>
     );
 };

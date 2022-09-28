@@ -1,3 +1,4 @@
+import { GetStaticProps } from "next";
 import { NextRouter } from "next/router";
 import { MenuItemInterface } from "./interface";
 
@@ -95,4 +96,49 @@ export const menuItems: MenuItemInterface[] = [
     },
 ];
 
-export const getImageUrl = (image: string) => `${process.env.NEXT_PUBLIC_URL_BACK}/assets/${image}`
+export const getImageApi = (image: string) =>
+    `${process.env.NEXT_PUBLIC_URL_BACK}/assets/${image}`;
+
+export const getElementsInApi = async <ItemGeneric>(url: string) => {
+    try {
+        const itemsRes = await fetch(process.env.NEXT_PUBLIC_URL_BACK + url);
+        return {
+            data: (await itemsRes.json()).data as ItemGeneric[],
+        };
+    } catch (e) {
+        console.log("Erreur when fetch", e);
+        return {
+            data: [] as ItemGeneric[],
+        };
+    }
+};
+
+export const getElementInApi = async <ItemGeneric>(url: string) => {
+    try {
+        const itemsRes = await fetch(process.env.NEXT_PUBLIC_URL_BACK + url);
+        return {
+            data: (await itemsRes.json()).data as ItemGeneric,
+        };
+    } catch (e) {
+        console.log("Erreur when fetch", e);
+        return {
+            data: null,
+        };
+    }
+};
+
+export const getStaticPropsApi =
+    <ItemGeneric>(url: string): GetStaticProps<{ items: ItemGeneric[] }> =>
+    async () => {
+        const res = await getElementsInApi<ItemGeneric>(url);
+        if (res.data) {
+            return {
+                props: {
+                    items: res.data,
+                },
+            };
+        }
+        return {
+            notFound: true,
+        };
+    };

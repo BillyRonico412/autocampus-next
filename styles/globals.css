@@ -8,3 +8,41 @@ body {
     font-family: "Rajdhani", sans-serif;
     @apply text-dark-font;
 }
+
+/* CSS pour le contenu */
+
+.content strong {
+    @apply font-bold;
+}
+
+.content h1 {
+    @apply text-6xl;
+}
+
+.content h2 {
+    @apply text-3xl;
+}
+
+.content h3 {
+    @apply text-xl;
+}
+
+.content ol {
+    @apply list-decimal ml-8;
+}
+
+.content ul {
+    @apply list-disc ml-8;
+}
+
+.content blockquote {
+    @apply bg-gray-100 py-2 px-2;
+}
+
+.content a {
+    @apply text-blue-600 underline;
+}
+
+.content p {
+    @apply mt-2;
+}

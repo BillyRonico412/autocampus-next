@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getImageUrl } from "../../utils/variables";
+import { getImageApi } from "../../utils/variables";
 
 type Props = {
     nom: string;
@@ -12,7 +12,7 @@ const MembreCard = (props: Props) => {
     return (
         <div className="flex justify-center relative w-[300px] shadow">
             <Image
-                src={getImageUrl(props.image)}
+                src={getImageApi(props.image)}
                 alt={`Image ${props.nom} ${props.prenom}`}
                 width={300}
                 height={300}

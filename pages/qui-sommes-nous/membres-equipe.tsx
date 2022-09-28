@@ -1,10 +1,8 @@
 import { InferGetStaticPropsType } from "next";
-import Head from "next/head";
-import FilAriane from "../../components/Common/FilAriane";
-import Header1 from "../../components/Common/Header1";
-import MembreCard from "../../components/Membre/MembreCard";
+import Layout1 from "../../components/Common/Layout1";
 import MembreItems from "../../components/Membre/MembreItems";
 import { FilArianeInterface } from "../../utils/interface";
+import { getStaticPropsApi } from "../../utils/variables";
 
 export type MembreProps = {
     nom: string;
@@ -13,31 +11,7 @@ export type MembreProps = {
     titre: string;
 };
 
-type StaticProps = {
-    membres: MembreProps[];
-};
-
-export const getStaticProps: () => Promise<{
-    props: StaticProps;
-}> = async () => {
-    try {
-        const membreRes = await fetch(
-            process.env.NEXT_PUBLIC_URL_BACK + "/items/membre"
-        );
-        return {
-            props: {
-                membres: (await membreRes.json()).data,
-            } as StaticProps,
-        };
-    } catch (e) {
-        console.log(e);
-        return {
-            props: {
-                membres: [],
-            },
-        };
-    }
-};
+export const getStaticProps = getStaticPropsApi<MembreProps>("/items/membre");
 
 const membresEquipe = (
     props: InferGetStaticPropsType<typeof getStaticProps>
@@ -55,18 +29,14 @@ const membresEquipe = (
 
     return (
         <>
-            <Head>
-                <title>Membres de l&apos;équipe</title>
-            </Head>
-            <div className="container mx-auto px-4">
-                <div>
-                    <div className="mt-4">
-                        <Header1 text1="Membres de" text2="l'équipe" />
-                        <FilAriane filArianes={filArianes} />
-                    </div>
-                    <MembreItems membres={props.membres} />
-                </div>
-            </div>
+            <Layout1
+                title="Membres de l'équipe"
+                text1="Membres de"
+                text2="l'équipe"
+                filArianes={filArianes}
+            >
+                <MembreItems membres={props.items} />
+            </Layout1>
         </>
     );
 };
