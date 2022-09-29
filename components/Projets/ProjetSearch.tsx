@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import Search from "../Common/Search";
+import Select from "../Common/Select";
 import { projetActions } from "./projetStore";
 
 type Props = {
@@ -19,20 +20,18 @@ const ProjetSearch = (props: Props) => {
         <div className="shadow border px-4 py-4 rounded flex flex-col gap-y-4 w-full">
             <p className="text-xl font-semibold">Rechercher</p>
             <Search placeholder="Rechercher un projet" />
-            <div className="flex gap-x-8">
-                <span className="text-xl font-semibold">Année:</span>
-                <select
-                    className="w rounded-full px-8 appearance-none bg-footer text-lg"
-                    onChange={(e) => onChangeAnneeFilter(e.currentTarget.value)}
-                >
-                    <option value={0}>Choisir l'année</option>
-                    {props.annees.map((item, i) => (
-                        <option value={item} key={i}>
-                            {item}
-                        </option>
-                    ))}
-                </select>
-            </div>
+            <Select
+                text="Annee"
+                onChange={onChangeAnneeFilter}
+                values={props.annees.map((annee) => ({
+                    key: String(annee),
+                    val: String(annee),
+                }))}
+                defaultValue={{
+                    key: "Choisir l'année",
+                    val: "0",
+                }}
+            />
         </div>
     );
 };

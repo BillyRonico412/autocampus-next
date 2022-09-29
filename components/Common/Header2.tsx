@@ -16,7 +16,7 @@ const Header2 = (props: Props) => {
                 <div className="flex flex-col items-center md:items-start justify-center gap-y-2">
                     <FilAriane filArianes={props.filArianes} />
                     <div className="md:hidden">{props.children}</div>
-                    <div className="text-3xl font-bold">{props.title}</div>
+                    <div className="text-3xl font-bold text-center md:text-left">{props.title}</div>
                     <ul className="flex font-semibold">
                         {props.motcles && (
                             <>

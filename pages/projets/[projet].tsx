@@ -1,13 +1,11 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
 import { FaProjectDiagram } from "react-icons/fa";
 import { ProjetProps } from ".";
 import Content from "../../components/Common/Content";
 import Layout2 from "../../components/Common/Layout2";
 import {
     getElementInApi,
-    getElementsInApi,
-    getStaticPropsApi,
+    getElementsInApi
 } from "../../utils/variables";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -60,7 +58,7 @@ const projet = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             link: "/projets",
         },
         {
-            text: props.projet.titre,
+            text: String(props.projet.id),
             link: "/projets/" + props.projet.id,
         },
     ];

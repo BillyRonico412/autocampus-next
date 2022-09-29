@@ -32,6 +32,7 @@ export const menuItems: MenuItemInterface[] = [
         childrens: [
             {
                 title: "Publications scientifiques",
+                link: "/publications-scientifiques",
                 childrens: [],
             },
             {

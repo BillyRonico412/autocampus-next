@@ -11,6 +11,7 @@ module.exports = {
 				"primary-old": "#EA973B",
 				"primary-old-hover": "#DA872B",
 				"footer": "#EA973B1A",
+				"primary-20": "#FFEDDE"
 			}
 		},
 	},

@@ -1,5 +1,5 @@
 import { PartenaireProps } from "./variable";
-import LayoutCard from "../Common/LayoutCard";
+import LayoutCard1 from "../Common/LayoutCard1";
 import PartenaireCard from "./PartenaireCard";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 
 const PartenaireItems = (props: Props) => {
     return (
-        <LayoutCard>
+        <LayoutCard1>
             {props.partenaireItems.map((partenaire, i) => (
                 <PartenaireCard
                     description={partenaire.description}
@@ -18,7 +18,7 @@ const PartenaireItems = (props: Props) => {
                     key={i}
                 />
             ))}
-        </LayoutCard>
+        </LayoutCard1>
     );
 };
 

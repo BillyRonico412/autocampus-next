@@ -14,7 +14,6 @@ const NavbarMobileItem2 = (props: Props) => {
 		<div
 			className="py-3 border-b pl-8 text-white bg-primary-old"
 			onClick={() => {
-				console.log("Hello")
 				if (props.menuItemChild.link) {
 					router.push(props.menuItemChild.link);
 					dispatch(navbarActions.setIsShow(false));

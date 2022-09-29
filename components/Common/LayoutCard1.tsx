@@ -4,7 +4,7 @@ type Props = {
     children: ReactNode;
 };
 
-const LayoutCard = (props: Props) => {
+const LayoutCard1 = (props: Props) => {
     return (
         <div className="flex xl:grid xl:grid-cols-2 gap-x-8 flex-col gap-y-12">
             {props.children}
@@ -12,4 +12,4 @@ const LayoutCard = (props: Props) => {
     );
 };
 
-export default LayoutCard;
+export default LayoutCard1;
