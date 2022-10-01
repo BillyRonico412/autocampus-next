@@ -13,6 +13,7 @@ export const menuItems: MenuItemInterface[] = [
             },
             {
                 title: "Notre démarche",
+                link: "/notre-demarche",
                 childrens: [],
             },
             {

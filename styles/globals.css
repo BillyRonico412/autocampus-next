@@ -16,15 +16,15 @@ body {
 }
 
 .content h1 {
-    @apply text-6xl;
+    @apply text-6xl mt-6;
 }
 
 .content h2 {
-    @apply text-3xl;
+    @apply text-3xl mt-3;
 }
 
 .content h3 {
-    @apply text-xl;
+    @apply text-xl mt-2;
 }
 
 .content ol {

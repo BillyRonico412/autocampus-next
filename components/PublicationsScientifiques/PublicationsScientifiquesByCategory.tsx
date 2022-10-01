@@ -10,7 +10,7 @@ type Props = {
     categorie: string;
 };
 
-const ArticleByCategory = (props: Props) => {
+const PublicationsScientifiquesByCategory = (props: Props) => {
     const [isShow, setIsShow] = useState(true);
     const dateList = useSelector(
         (state: RootState) => state.publicationsScientifique.dateList
@@ -47,4 +47,4 @@ const ArticleByCategory = (props: Props) => {
     );
 };
 
-export default ArticleByCategory;
+export default PublicationsScientifiquesByCategory;
