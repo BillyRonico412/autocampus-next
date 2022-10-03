@@ -1,11 +1,12 @@
 import { InferGetStaticPropsType } from "next";
 import { FaBookReader } from "react-icons/fa";
+import ArticleGenericFilter from "../components/Article/ArticleGenericFilter";
+import ArticleGenericSearch from "../components/Article/ArticleGenericSearch";
+import { ArticleEnum } from "../components/Article/utils";
 import Layout1 from "../components/Common/Layout1";
-import PublicationsScientifiquesFilter from "../components/PublicationsScientifiques/PublicationsScientifiquesFilter";
-import PublicationsScientifiquesSearch from "../components/PublicationsScientifiques/PublicationsScientifiquesSearch";
 import { getStaticPropsApi } from "../utils/variables";
 
-export type PublicationsScientifiquesInterface = {
+export type PublicationsScientifiquesByApi = {
     titre: string;
     annee: number;
     category: string;
@@ -31,14 +32,13 @@ export type PublicationsScientifiquesInterface = {
     }[];
 };
 
-export const getStaticProps = getStaticPropsApi<PublicationsScientifiquesInterface>(
+export const getStaticProps = getStaticPropsApi<PublicationsScientifiquesByApi>(
     "/items/publicationScientifique?fields=*,publicationScientifiqueProjet.projet_id.titre,publicationScientifiqueProjet.projet_id.id,publicationScientifiqueMotcle.motcle_id.libelle,publicationScientifiqueAuteur.auteur_id.nom,publicationScientifiqueAuteur.auteur_id.prenom"
 );
 
 const PublicationsScientifiques = (
     props: InferGetStaticPropsType<typeof getStaticProps>
 ) => {
-
     const filArianes = [
         {
             text: "Accueil",
@@ -60,14 +60,39 @@ const PublicationsScientifiques = (
                 icons={<FaBookReader className="text-3xl md:text-6xl" />}
             >
                 <div className="md:hidden">
-                    <PublicationsScientifiquesSearch />
+                    <ArticleGenericSearch
+                        type={ArticleEnum.PublicationScientifique}
+                    />
                 </div>
                 <div className="mt-8 flex gap-x-8">
                     <div className="flex-grow">
-                        <PublicationsScientifiquesFilter publicationsScientifiques={props.items}/>
+                        <ArticleGenericFilter
+                            articles={props.items.map((item) => ({
+                                titre: item.titre,
+                                abstract: item.abstract,
+                                annee: item.annee,
+                                category: item.category,
+                                lien: item.lien,
+                                auteurs: item.publicationScientifiqueAuteur.map(
+                                    (auteur) =>
+                                        auteur.auteur_id.prenom +
+                                        " " +
+                                        auteur.auteur_id.nom
+                                ),
+                                motcles: item.publicationScientifiqueMotcle.map(
+                                    (motcle) => motcle.motcle_id.libelle
+                                ),
+                                projets: item.publicationScientifiqueProjet.map(
+                                    (projet) => projet.projet_id.titre
+                                ),
+                            }))}
+                            type={ArticleEnum.PublicationScientifique}
+                        />
                     </div>
                     <div className="hidden md:block md:w-[400px]">
-                        <PublicationsScientifiquesSearch />
+                        <ArticleGenericSearch
+                            type={ArticleEnum.PublicationScientifique}
+                        />
                     </div>
                 </div>
             </Layout1>

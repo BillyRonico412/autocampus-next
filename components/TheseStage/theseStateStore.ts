@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface TheseStageInterface {
+export interface TheseStageProps {
     dateList: number[];
     projetList: string[];
     categorieList: string[];
@@ -12,7 +12,7 @@ export interface TheseStageInterface {
     auteurFilter: string | null;
 }
 
-const initialState: TheseStageInterface = {
+const initialState: TheseStageProps = {
     dateFilter: null,
     projetFilter: null,
     categorieFilter: null,

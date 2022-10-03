@@ -10,7 +10,7 @@ type Props = {
 
 const MembreCard = (props: Props) => {
     return (
-        <div className="flex justify-center relative w-[300px] shadow">
+        <div className="flex justify-center relative w-[300px] shadow group">
             <Image
                 src={getImageApi(props.image)}
                 alt={`Image ${props.nom} ${props.prenom}`}
@@ -18,7 +18,7 @@ const MembreCard = (props: Props) => {
                 height={300}
                 className={"object-cover"}
             />
-            <div className="bg-primary-old absolute w-full bottom-0 text-white px-4 py-2">
+            <div className="bg-primary-old absolute w-full bottom-0 translate-y-full group-hover:translate-y-0 transition-transform text-white px-4 py-2">
                 <h2 className="font-semibold text-2xl">
                     <span className="capitalize">{props.prenom}</span>{" "}
                     <span className="uppercase ">{props.nom}</span>

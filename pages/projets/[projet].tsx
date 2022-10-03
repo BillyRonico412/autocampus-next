@@ -1,30 +1,13 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import {
+    GetServerSideProps, InferGetServerSidePropsType, InferGetStaticPropsType
+} from "next";
 import { FaProjectDiagram } from "react-icons/fa";
 import { ProjetProps } from ".";
 import Content from "../../components/Common/Content";
 import Layout2 from "../../components/Common/Layout2";
-import {
-    getElementInApi,
-    getElementsInApi
-} from "../../utils/variables";
+import { getElementInApi } from "../../utils/variables";
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    const projets = await getElementsInApi<ProjetProps>(
-        "/items/projet?filter[status][_eq]=published&fields=*,projetPlateforme.nom,projetMotcle.*.libelle"
-    );
-    const paths = projets.data.map((projet) => ({
-        params: {
-            projet: projet.id.toString(),
-        },
-    }));
-
-    return {
-        paths,
-        fallback: false,
-    };
-};
-
-export const getStaticProps: GetStaticProps<{
+export const getServerSideProps: GetServerSideProps<{
     projet: ProjetProps;
 }> = async (context) => {
     if (!context.params) {
@@ -47,7 +30,7 @@ export const getStaticProps: GetStaticProps<{
     };
 };
 
-const projet = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const projet = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const filArianes = [
         {
             text: "Accueil",

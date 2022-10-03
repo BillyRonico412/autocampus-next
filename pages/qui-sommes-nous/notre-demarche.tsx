@@ -1,9 +1,9 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { GiProgression } from "react-icons/gi";
-import Content from "../components/Common/Content";
-import Layout2 from "../components/Common/Layout2";
-import { FilArianeInterface } from "../utils/interface";
-import { getElementInApi } from "../utils/variables";
+import Content from "../../components/Common/Content";
+import Layout2 from "../../components/Common/Layout2";
+import { FilArianeInterface } from "../../utils/interface";
+import { getElementInApi } from "../../utils/variables";
 
 type NotreDemarcheProps = {
     notre_demarche: string;

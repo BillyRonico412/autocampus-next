@@ -17,8 +17,8 @@ const FooterSuivezNous = (props: Props) => {
                     "flex flex-col mt-4 " + (props.center && "items-center")
                 }
             >
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
+                <a href="https://www.linkedin.com/company/autocampus/">LinkedIn</a>
+                <a href="https://twitter.com/UT3PaulSabatier">Twitter</a>
             </div>
         </div>
     );

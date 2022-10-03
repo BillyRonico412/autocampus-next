@@ -1,5 +1,6 @@
 import informationsSvg from "../../../public/svg/informations.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
     center?: true;
@@ -17,7 +18,7 @@ const FooterInformations = (props: Props) => {
                     "flex flex-col mt-4 " + (props.center && "items-center")
                 }
             >
-                <a href="#">Protection des données</a>
+                <Link href="/protection-donnee">Protection des données</Link>
                 <a href="#">Plan du site</a>
             </div>
         </div>

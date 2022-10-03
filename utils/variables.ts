@@ -13,11 +13,12 @@ export const menuItems: MenuItemInterface[] = [
             },
             {
                 title: "Notre démarche",
-                link: "/notre-demarche",
+                link: "/qui-sommes-nous/notre-demarche",
                 childrens: [],
             },
             {
                 title: "Gouvernance",
+                link: "/qui-sommes-nous/gouvernance",
                 childrens: [],
             },
         ],
@@ -39,6 +40,7 @@ export const menuItems: MenuItemInterface[] = [
             {
                 title: "Thèses & stages",
                 childrens: [],
+                link: "/these-stage",
             },
         ],
     },
@@ -144,3 +146,17 @@ export const getStaticPropsApi =
             notFound: true,
         };
     };
+
+export const allPath = [
+    "/",
+    "/protection-donnee",
+    "/publications-scientifiques",
+    "/these-stage",
+    "/partenaire/entreprises",
+    "/partenaire/institutions",
+    "/partenaire/laboratoires",
+    "/projets",
+    "/qui-sommes-nous/gouvernance",
+    "/qui-sommes-nous/membres-equipe",
+    "/qui-sommes-nous/notre-demarche",
+];
