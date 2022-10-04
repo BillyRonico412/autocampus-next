@@ -1,6 +1,7 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import {
+    GetServerSideProps, InferGetServerSidePropsType
+} from "next";
 import { FaLock } from "react-icons/fa";
-import { GiProgression } from "react-icons/gi";
 import Content from "../components/Common/Content";
 import Layout2 from "../components/Common/Layout2";
 import { FilArianeInterface } from "../utils/interface";
@@ -10,7 +11,7 @@ type ProtectionDonneeProps = {
     protectionDonnee: string;
 };
 
-export const getStaticProps: GetStaticProps<{
+export const getServerSideProps: GetServerSideProps<{
     item: ProtectionDonneeProps;
 }> = async () => {
     const item = await getElementInApi<ProtectionDonneeProps>(
@@ -29,7 +30,7 @@ export const getStaticProps: GetStaticProps<{
 };
 
 const ProtectionDonnee = (
-    props: InferGetStaticPropsType<typeof getStaticProps>
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
     const filArianes: FilArianeInterface[] = [
         {

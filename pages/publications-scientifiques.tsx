@@ -1,10 +1,10 @@
-import { InferGetStaticPropsType } from "next";
+import { InferGetServerSidePropsType } from "next";
 import { FaBookReader } from "react-icons/fa";
 import ArticleGenericFilter from "../components/Article/ArticleGenericFilter";
 import ArticleGenericSearch from "../components/Article/ArticleGenericSearch";
 import { ArticleEnum } from "../components/Article/utils";
 import Layout1 from "../components/Common/Layout1";
-import { getStaticPropsApi } from "../utils/variables";
+import { getServerSidePropsApi } from "../utils/variables";
 
 export type PublicationsScientifiquesByApi = {
     titre: string;
@@ -32,12 +32,13 @@ export type PublicationsScientifiquesByApi = {
     }[];
 };
 
-export const getStaticProps = getStaticPropsApi<PublicationsScientifiquesByApi>(
-    "/items/publicationScientifique?fields=*,publicationScientifiqueProjet.projet_id.titre,publicationScientifiqueProjet.projet_id.id,publicationScientifiqueMotcle.motcle_id.libelle,publicationScientifiqueAuteur.auteur_id.nom,publicationScientifiqueAuteur.auteur_id.prenom"
-);
+export const getServerSideProps =
+    getServerSidePropsApi<PublicationsScientifiquesByApi>(
+        "/items/publicationScientifique?fields=*,publicationScientifiqueProjet.projet_id.titre,publicationScientifiqueProjet.projet_id.id,publicationScientifiqueMotcle.motcle_id.libelle,publicationScientifiqueAuteur.auteur_id.nom,publicationScientifiqueAuteur.auteur_id.prenom"
+    );
 
 const PublicationsScientifiques = (
-    props: InferGetStaticPropsType<typeof getStaticProps>
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
     const filArianes = [
         {

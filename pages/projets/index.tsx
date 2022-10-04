@@ -1,4 +1,4 @@
-import { InferGetStaticPropsType } from "next";
+import { InferGetServerSidePropsType } from "next";
 import { FaProjectDiagram } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import Layout1 from "../../components/Common/Layout1";
@@ -7,7 +7,7 @@ import ProjetList from "../../components/Projets/ProjetList";
 import ProjetSearch from "../../components/Projets/ProjetSearch";
 import { FilArianeInterface } from "../../utils/interface";
 import { RootState } from "../../utils/store";
-import { getStaticPropsApi } from "../../utils/variables";
+import { getServerSidePropsApi } from "../../utils/variables";
 
 export type ProjetProps = {
     id: number;
@@ -23,14 +23,16 @@ export type ProjetProps = {
             libelle: string;
         };
     }[];
-    contenu: string
+    contenu: string;
 };
 
-export const getStaticProps = getStaticPropsApi<ProjetProps>(
+export const getServerSideProps = getServerSidePropsApi<ProjetProps>(
     "/items/projet?filter[status][_eq]=published&fields=*,projetPlateforme.nom,projetMotcle.*.libelle"
 );
 
-const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const index = (
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
     const anneeFilter = useSelector(
         (state: RootState) => state.projet.anneeFilter
     );

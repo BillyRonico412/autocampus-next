@@ -1,9 +1,9 @@
-import { InferGetStaticPropsType } from "next";
+import { InferGetServerSidePropsType, InferGetStaticPropsType } from "next";
 import { FaPeopleArrows } from "react-icons/fa";
 import Layout1 from "../../components/Common/Layout1";
 import MembreItems from "../../components/Membre/MembreItems";
 import { FilArianeInterface } from "../../utils/interface";
-import { getStaticPropsApi } from "../../utils/variables";
+import { getServerSidePropsApi } from "../../utils/variables";
 
 export type MembreProps = {
     nom: string;
@@ -12,11 +12,13 @@ export type MembreProps = {
     titre: string;
 };
 
-export const getStaticProps = getStaticPropsApi<MembreProps>(
+export const getServerSideProps = getServerSidePropsApi<MembreProps>(
     "/items/membre?filter[gouvernance][_eq]=true"
 );
 
-const gouvernance = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const gouvernance = (
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
     const filArianes: FilArianeInterface[] = [
         {
             text: "Accueil",

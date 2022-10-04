@@ -1,4 +1,4 @@
-import { getStaticPropsApi } from "../../utils/variables";
+import { getServerSidePropsApi } from "../../utils/variables";
 
 export type PartenaireProps = {
     description: string;

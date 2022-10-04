@@ -1,10 +1,10 @@
-import { InferGetStaticPropsType } from "next";
+import { InferGetServerSidePropsType } from "next";
 import { FaGraduationCap } from "react-icons/fa";
 import ArticleGenericFilter from "../components/Article/ArticleGenericFilter";
 import ArticleGenericSearch from "../components/Article/ArticleGenericSearch";
 import { ArticleEnum } from "../components/Article/utils";
 import Layout1 from "../components/Common/Layout1";
-import { getStaticPropsApi } from "../utils/variables";
+import { getServerSidePropsApi } from "../utils/variables";
 
 export type TheseStageByApi = {
     abstract: string;
@@ -37,11 +37,13 @@ export type TheseStageByApi = {
     };
 };
 
-export const getStaticProps = getStaticPropsApi<TheseStageByApi>(
+export const getServerSideProps = getServerSidePropsApi<TheseStageByApi>(
     "/items/theseStage?fields=*,theseStageProjet.projet_id.titre,theseStageProjet.projet_id.id,theseStageMotcle.motcle_id.libelle,theseStageAuteur.nom,theseStageAuteur.prenom"
 );
 
-const TheseStage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const TheseStage = (
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
     const filArianes = [
         {
             text: "Accueil",

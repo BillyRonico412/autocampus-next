@@ -1,4 +1,6 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import {
+    GetServerSideProps, InferGetServerSidePropsType
+} from "next";
 import { GiProgression } from "react-icons/gi";
 import Content from "../../components/Common/Content";
 import Layout2 from "../../components/Common/Layout2";
@@ -9,7 +11,7 @@ type NotreDemarcheProps = {
     notre_demarche: string;
 };
 
-export const getStaticProps: GetStaticProps<{
+export const getServerSideProps: GetServerSideProps<{
     item: NotreDemarcheProps;
 }> = async () => {
     const item = await getElementInApi<NotreDemarcheProps>(
@@ -28,7 +30,7 @@ export const getStaticProps: GetStaticProps<{
 };
 
 const NotreDemarche = (
-    props: InferGetStaticPropsType<typeof getStaticProps>
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
     const filArianes: FilArianeInterface[] = [
         {

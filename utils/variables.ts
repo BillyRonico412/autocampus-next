@@ -1,5 +1,4 @@
-import { GetStaticProps } from "next";
-import { NextRouter } from "next/router";
+import { GetServerSideProps } from "next";
 import { MenuItemInterface } from "./interface";
 
 export const menuItems: MenuItemInterface[] = [
@@ -131,8 +130,8 @@ export const getElementInApi = async <ItemGeneric>(url: string) => {
     }
 };
 
-export const getStaticPropsApi =
-    <ItemGeneric>(url: string): GetStaticProps<{ items: ItemGeneric[] }> =>
+export const getServerSidePropsApi =
+    <ItemGeneric>(url: string): GetServerSideProps<{ items: ItemGeneric[] }> =>
     async () => {
         const res = await getElementsInApi<ItemGeneric>(url);
         if (res.data) {

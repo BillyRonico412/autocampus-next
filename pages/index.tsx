@@ -1,8 +1,9 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import Image from "next/image";
+import {
+    GetServerSideProps, InferGetServerSidePropsType
+} from "next";
 import Content from "../components/Common/Content";
 import HomepageCarousel from "../components/Homepage/HomepageCarousel";
-import { getElementInApi, getImageApi } from "../utils/variables";
+import { getElementInApi } from "../utils/variables";
 
 type HomePageProps = {
     contenu: string;
@@ -12,7 +13,7 @@ type HomePageProps = {
     }[];
 };
 
-export const getStaticProps: GetStaticProps<{
+export const getServerSideProps: GetServerSideProps<{
     homepage: HomePageProps;
 }> = async () => {
     const res = await getElementInApi<HomePageProps>(
@@ -30,7 +31,9 @@ export const getStaticProps: GetStaticProps<{
     };
 };
 
-const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = (
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
     return (
         <div className="px-4 container mx-auto py-8">
             <HomepageCarousel

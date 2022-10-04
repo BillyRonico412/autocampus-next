@@ -1,21 +1,21 @@
-import { InferGetStaticPropsType } from "next";
+import { InferGetServerSidePropsType } from "next";
 import { IoMdBusiness } from "react-icons/io";
 import Layout2 from "../../components/Common/Layout2";
 import PartenaireItems from "../../components/Partenaire/PartenaireItems";
-import { FilArianeInterface } from "../../utils/interface";
-import { getStaticPropsApi } from "../../utils/variables";
 import {
     PartenaireProps,
     PartenaireTypeEnum,
-    urlByPartenaireType,
+    urlByPartenaireType
 } from "../../components/Partenaire/variable";
+import { FilArianeInterface } from "../../utils/interface";
+import { getServerSidePropsApi } from "../../utils/variables";
 
-export const getStaticProps = getStaticPropsApi<PartenaireProps>(
+export const getServerSideProps = getServerSidePropsApi<PartenaireProps>(
     urlByPartenaireType(PartenaireTypeEnum.Institutions)
 );
 
 const institutions = (
-    props: InferGetStaticPropsType<typeof getStaticProps>
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
     const filArianes: FilArianeInterface[] = [
         {
