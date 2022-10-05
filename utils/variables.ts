@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import { useState } from "react";
 import { MenuItemInterface } from "./interface";
 
 export const menuItems: MenuItemInterface[] = [
@@ -159,3 +160,5 @@ export const allPath = [
     "/qui-sommes-nous/membres-equipe",
     "/qui-sommes-nous/notre-demarche",
 ];
+
+

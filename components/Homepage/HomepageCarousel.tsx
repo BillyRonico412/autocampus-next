@@ -11,7 +11,7 @@ const HomepageCarousel = (props: Props) => {
     return (
         <div>
             <div className="h-[500px]">
-                <Carousel autoPlay infiniteLoop showThumbs={false}>
+                <Carousel autoPlay infiniteLoop showThumbs={false} showArrows>
                     {props.images.map((image, i) => (
                         <div className="relative w-full h-[500px]" key={i}>
                             <Image

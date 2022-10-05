@@ -1,9 +1,8 @@
-import {
-    GetServerSideProps, InferGetServerSidePropsType
-} from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Content from "../components/Common/Content";
 import HomepageCarousel from "../components/Homepage/HomepageCarousel";
-import { getElementInApi } from "../utils/variables";
+import HomepagePartenaires from "../components/Homepage/HomepagePartenaires";
+import { getElementInApi, getElementsInApi } from "../utils/variables";
 
 type HomePageProps = {
     contenu: string;
@@ -13,20 +12,31 @@ type HomePageProps = {
     }[];
 };
 
+export type PartenaireProps = {
+    logo: string;
+    category: string;
+};
+
 export const getServerSideProps: GetServerSideProps<{
     homepage: HomePageProps;
+    partenaires: PartenaireProps[];
 }> = async () => {
-    const res = await getElementInApi<HomePageProps>(
+    const homepageApi = await getElementInApi<HomePageProps>(
         "/items/homepage?fields=*,images.directus_files_id"
     );
-    if (res.data === null) {
+    const partenairesApi = await getElementsInApi<PartenaireProps>(
+        "/items/partenaire?fields=logo,category"
+    );
+
+    if (homepageApi.data === null) {
         return {
             notFound: true,
         };
     }
     return {
         props: {
-            homepage: res.data,
+            homepage: homepageApi.data,
+            partenaires: partenairesApi.data,
         },
     };
 };
@@ -46,6 +56,11 @@ const Home = (
                 <span className="text-primary-old">Autocampus</span>
             </p>
             <Content content={props.homepage.contenu} />
+            <p className="text-2xl font-bold mt-4">
+                <span className="">Nos </span>
+                <span className="text-primary-old">Partenaires</span>
+            </p>
+            <HomepagePartenaires partenaires={props.partenaires} />
         </div>
     );
 };
