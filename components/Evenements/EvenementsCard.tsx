@@ -47,8 +47,8 @@ const EvenementsCard = (props: Props) => {
                 <p>{dateString(props.date)}</p>
                 <p className="font-medium pt-2">{props.description}</p>
             </div>
-            <div className="h-[80px] flex items-center gap-x-4 justify-end px-4 font-bold group-hover:text-primary-old">
-                <span>Lire la suite</span>
+            <div className="h-[80px] flex items-center gap-x-4 justify-end px-4 font-bold group-hover:text-primary-old transition-colors">
+                <span>Lire la suite</span> 
                 <FaCaretRight />
             </div>
         </div>
