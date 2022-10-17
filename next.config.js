@@ -4,7 +4,8 @@ const nextConfig = {
 	swcMinify: true,
 	images: {
 		domains: [
-			"autocampus-directus.ronico-billy.fr"
+			"autocampus-directus.ronico-billy.fr",
+			"images.unsplash.com"
 		]
 	}
 };

@@ -10,7 +10,7 @@ type Props = {
 
 const MembreCard = (props: Props) => {
     return (
-        <div className="flex justify-center relative w-[300px] shadow group">
+        <div className="flex justify-center relative w-[300px] shadow group overflow-hidden">
             <Image
                 src={getImageApi(props.image)}
                 alt={`Image ${props.nom} ${props.prenom}`}
