@@ -1,8 +1,6 @@
 import { InferGetServerSidePropsType } from "next";
 import { FaCalendarAlt } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { ActualitesEnum } from "../../components/Actualites/utils";
+import { useDispatch, useSelector } from "react-redux";
 import Layout1 from "../../components/Common/Layout1";
 import EvenementsFilter from "../../components/Evenements/EvenementsFilter";
 import EvenementsSearch from "../../components/Evenements/EvenementsSearch";
@@ -68,6 +66,7 @@ const evenements = (
                     <div className="flex-grow">
                         <EvenementsFilter
                             evenements={props.items.map((item) => ({
+                                id: item.id,
                                 titre: item.titre,
                                 date: item.date,
                                 projet: item.evenementProjet.titre,

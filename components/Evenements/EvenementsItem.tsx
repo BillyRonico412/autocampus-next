@@ -9,6 +9,7 @@ const EvenementsItem = (props: Props) => {
     return (
         <div className="">
             <EvenementsCard
+                id={props.evenement.id}
                 titre={props.evenement.titre}
                 date={props.evenement.date}
                 description={props.evenement.description}

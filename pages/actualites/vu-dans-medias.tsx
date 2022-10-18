@@ -1,16 +1,13 @@
-import { MetadataInformation } from "link-meta-extractor/dist/metadata";
 import { useEffect, useState } from "react";
-import { FaInfoCircle } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { ActualitesEnum } from "../../components/Actualites/utils";
+import { FaMobileAlt } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import Layout1 from "../../components/Common/Layout1";
 import VuDansMediaFilter from "../../components/vuDansMedias/VuDansMediaFilter";
 import VuDansMediasSearch from "../../components/vuDansMedias/VuDansMediasSearch";
 import { vuDansLesMediasActions } from "../../components/vuDansMedias/vuDansMediasStore";
 import { FilArianeInterface, VuDansMediasType } from "../../utils/interface";
 import { RootState } from "../../utils/store";
-import { getElementsInApi, yupMetadata } from "../../utils/variables";
+import { getElementsInApi } from "../../utils/variables";
 
 type LienProps = {
     lien: string;
@@ -64,7 +61,7 @@ const VuDansMedias = () => {
             <Layout1
                 filArianes={filArianes}
                 title="Vu dans les médias"
-                icons={<FaInfoCircle className="text-6xl" />}
+                icons={<FaMobileAlt className="text-6xl" />}
                 text1="Vu dans"
                 text2="les médias"
             >

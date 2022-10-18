@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import * as yup from "yup";
 import { MenuItemInterface } from "./interface";
 
 export const menuItems: MenuItemInterface[] = [
@@ -80,20 +79,12 @@ export const menuItems: MenuItemInterface[] = [
         ],
     },
     {
-        title: "Les plateformes boîtes à outils",
-        childrens: [
-            {
-                title: "Plateau technique",
-                childrens: [],
-            },
-            {
-                title: "Tarif et utilisation",
-                childrens: [],
-            },
-        ],
+        title: "Plateformes",
+        childrens: [],
     },
     {
         title: "Contactez-nous",
+        link: "/contact",
         childrens: [],
     },
     {
@@ -163,15 +154,26 @@ export const allPath = [
     "/qui-sommes-nous/notre-demarche",
 ];
 
-export const yupUrl = yup.object().required().shape({
-    url: yup.string().required().url(),
-});
-
-export const yupMetadata = yup.object().shape({
-    title: yup.string().required(),
-    description: yup.string().required(),
-    banner: yup.string().url().required(),
-});
-
 export const linkImageDefaultVuMedia =
     "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80";
+
+export const dateString = (date: string) => {
+    const mois = [
+        "janvier",
+        "février",
+        "mars",
+        "avril",
+        "mai",
+        "juin",
+        "juillet",
+        "août",
+        "septembre",
+        "octobre",
+        "novembre",
+        "décembre",
+    ];
+    const dateObj = new Date(date);
+    return `${dateObj.getDay()} ${
+        mois[dateObj.getMonth()]
+    } ${dateObj.getFullYear()}`;
+};

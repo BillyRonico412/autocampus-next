@@ -61,7 +61,6 @@ const NavbarDesktopItem = (props: Props) => {
                                 onClick={() => onClickMenuItem()}
                             >
                                 <span>Les plateformes</span>
-                                <span>boîtes à outils</span>
                             </div>
                             {props.index === indexMenuItemOpened && (
                                 <NavbarDesktopDropdown

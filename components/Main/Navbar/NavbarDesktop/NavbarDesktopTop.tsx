@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import autocampusLogo from "../../../../public/images/autocampus-logo.png";
 import Search from "../../../Common/Search";
 
@@ -15,9 +16,9 @@ const NavbarDesktopTop = () => {
                 </a>
             </div>
             <div className="flex items-center">
-                <a href="#" className="font-semibold">
-                    Contact
-                </a>
+                <Link href="/contact">
+                    <span className="font-semibold cursor-pointer">Contact</span>
+                </Link>
             </div>
             <div className="flex items-center">
                 <span className="border-l px-2">FR</span>

@@ -18,7 +18,7 @@ const MembreCard = (props: Props) => {
                 height={300}
                 className={"object-cover"}
             />
-            <div className="bg-primary-old absolute w-full bottom-0 translate-y-full group-hover:translate-y-0 transition-transform text-white px-4 py-2">
+            <div className="bg-primary-old absolute w-full bottom-0 lg:translate-y-full group-hover:translate-y-0 transition-transform text-white px-4 py-2">
                 <h2 className="font-semibold text-2xl">
                     <span className="capitalize">{props.prenom}</span>{" "}
                     <span className="uppercase ">{props.nom}</span>

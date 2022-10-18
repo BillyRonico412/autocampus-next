@@ -15,7 +15,7 @@ const SelectInput = (props: Props) => {
     return (
         <select
             className={
-                "w rounded-full px-8 appearance-none bg-footer " +
+                "w-full rounded-lg px-8 py-2 appearance-none bg-primary-20 font-semibold text-opacity-75" +
                 (props.full && "w-full")
             }
             onChange={(e) => props.onChange(e.currentTarget.value)}

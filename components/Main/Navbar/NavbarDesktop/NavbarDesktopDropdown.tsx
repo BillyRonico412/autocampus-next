@@ -38,7 +38,7 @@ const NavbarDesktopDropdown = (props: Props) => {
             {props.menuItem.childrens.map((menuItemChild, j) => (
                 <div
                     key={j}
-                    className="py-1 text-center border-b text-white px-4 bg-primary-old hover:bg-primary-old-hover"
+                    className="py-1 text-center border-b text-white px-2 bg-primary-old hover:bg-primary-old-hover"
                     onClick={() => onClickItemMenuChild(menuItemChild)}
                 >
                     {menuItemChild.title}

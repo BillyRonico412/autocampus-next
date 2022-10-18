@@ -10,7 +10,12 @@ type Props = {
 
 const PartenaireCard = (props: Props) => {
     return (
-        <div className="flex flex-col items-center gap-y-2 md:flex-row md:h-[200px] md:overflow-hidden">
+        <div
+            className="flex flex-col items-center gap-y-2 md:flex-row md:h-[200px] md:overflow-hidden cursor-pointer"
+            onClick={() => {
+                window.open(props.lienExterne, "_blank");
+            }}
+        >
             <div className="w-[200px] h-[200px] flex items-center">
                 <Image
                     src={getImageApi(props.logo)}

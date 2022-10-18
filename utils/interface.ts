@@ -12,6 +12,7 @@ export interface FilArianeInterface {
 }
 
 export interface EvenementProps {
+    id: number;
     titre: string;
     description: string;
     contenu: string;
@@ -27,3 +28,16 @@ export type VuDansMediasType = {
     metadata: MetadataInformation;
     projet: string;
 };
+
+export interface EvenementProps {
+    id: number;
+    titre: string;
+    contenu: string;
+    date: string;
+    image: string;
+    evenementMotcle: {
+        motcle_id: {
+            libelle: string;
+        };
+    }[];
+}

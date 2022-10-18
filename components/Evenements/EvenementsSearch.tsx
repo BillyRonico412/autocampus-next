@@ -39,7 +39,7 @@ const EvenementsSearch = (props: Props) => {
         <div>
             <div className="shadow border px-4 py-4 rounded flex flex-col gap-y-4 w-full">
                 <p className="text-3xl font-bold text-center">Recherche</p>
-                <div className="flex justify-center gap-x-8">
+                <div className="flex flex-col md:flex-row gap-y-4 justify-center gap-x-8">
                     {selects.map((select, i) => (
                         <Select
                             text={select.text}

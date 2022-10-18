@@ -1,5 +1,8 @@
 import { InferGetServerSidePropsType } from "next";
 import { FaBookReader } from "react-icons/fa";
+import ArticleGenericFilter from "../components/Article/ArticleGenericFilter";
+import ArticleGenericSearch from "../components/Article/ArticleGenericSearch";
+import { ArticleEnum } from "../components/Article/utils";
 import Layout1 from "../components/Common/Layout1";
 import { getServerSidePropsApi } from "../utils/variables";
 

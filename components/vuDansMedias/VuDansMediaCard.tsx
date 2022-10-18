@@ -12,7 +12,7 @@ type Props = {
 const VuDansMediaCard = (props: Props) => {
     return (
         <div
-            className="w-[350px] h-[600px] overflow-hidden shadow border rounded cursor-pointer group"
+            className="w-[320px] h-[600px] overflow-hidden shadow border rounded cursor-pointer group"
             onClick={() => {
                 window.open(props.link, "_blank");
             }}
@@ -20,7 +20,7 @@ const VuDansMediaCard = (props: Props) => {
             <div>
                 <img
                     src={props.image ? props.image : linkImageDefaultVuMedia}
-                    className="object-cover w-[350px] h-[200px]"
+                    className="object-cover w-[320px] h-[200px]"
                 />
             </div>
             <div className="px-4 py-2 h-[320px] overflow-hidden">

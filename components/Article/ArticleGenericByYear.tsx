@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { FaCaretDown, FaCaretRight } from "react-icons/fa";
-import { EvenementsType } from "../Actualites/utils";
-import EvenementsItem from "./EvenementsItem";
+import ArticleGenericItem from "./ArticleGenericItem";
+import { ArticleType } from "./utils";
 
 type Props = {
+    articles: ArticleType[];
     annee: number;
-    evenements: EvenementsType[];
 };
-
-const EvenementsByYear = (props: Props) => {
+const ArticleGenericByYear = (props: Props) => {
     const [isShow, setIsShow] = useState(true);
     return (
         <>
-            {props.evenements.length > 0 && (
+            {props.articles.length > 0 && (
                 <div className="ml-8">
                     <p
                         className="text-lg font-semibold flex items-center gap-x-2 cursor-pointer"
@@ -22,9 +21,12 @@ const EvenementsByYear = (props: Props) => {
                         {isShow ? <FaCaretDown /> : <FaCaretRight />}
                     </p>
                     {isShow && (
-                        <div className="flex mt-2 flex-wrap gap-x-8 gap-y-8">
-                            {props.evenements.map((actu, i) => (
-                                <EvenementsItem key={i} evenement={actu} />
+                        <div className="flex flex-col gap-y-2 mt-2">
+                            {props.articles.map((pub, i) => (
+                                <ArticleGenericItem
+                                    key={i}
+                                    article={pub}
+                                />
                             ))}
                         </div>
                     )}
@@ -34,4 +36,4 @@ const EvenementsByYear = (props: Props) => {
     );
 };
 
-export default EvenementsByYear;
+export default ArticleGenericByYear;
