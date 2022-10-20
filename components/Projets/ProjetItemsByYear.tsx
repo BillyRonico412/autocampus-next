@@ -54,7 +54,6 @@ const ProjetItemsByYear = (props: Props) => {
                         <ProjetCard
                             id={projet.id}
                             titre={projet.titre}
-                            annee={projet.annee}
                             description={projet.description}
                             image={projet.image}
                             nomPlateforme={projet.projetPlateforme.nom}

@@ -1,6 +1,7 @@
 type Props = {
     title: string;
     placeholder: string;
+    onInput?: (val: string) => void;
 };
 
 const TextInput = (props: Props) => {
@@ -11,6 +12,11 @@ const TextInput = (props: Props) => {
                 type="text"
                 className="w-full rounded-lg py-2 px-4 bg-primary-20 placeholder:text-dark-font placeholder:text-opacity-50 font-semibold"
                 placeholder={props.placeholder}
+                onInput={(e) => {
+                    if (props.onInput) {
+                        props.onInput(e.currentTarget.value);
+                    }
+                }}
             />
         </div>
     );

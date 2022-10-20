@@ -6,7 +6,6 @@ type Props = {
 };
 
 const VuDansMediaItem = (props: Props) => {
-    console.log(props.media.metadata);
     return (
         <div>
             <VuDansMediaCard

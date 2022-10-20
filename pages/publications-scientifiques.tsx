@@ -34,7 +34,7 @@ export type PublicationsScientifiquesByApi = {
 
 export const getServerSideProps =
     getServerSidePropsApi<PublicationsScientifiquesByApi>(
-        "/items/publicationScientifique?fields=*,publicationScientifiqueProjet.projet_id.titre,publicationScientifiqueProjet.projet_id.id,publicationScientifiqueMotcle.motcle_id.libelle,publicationScientifiqueAuteur.auteur_id.nom,publicationScientifiqueAuteur.auteur_id.prenom"
+        "/items/publicationScientifique?filter[status][_eq]=published&fields=*,publicationScientifiqueProjet.projet_id.titre,publicationScientifiqueProjet.projet_id.id,publicationScientifiqueMotcle.motcle_id.libelle,publicationScientifiqueAuteur.auteur_id.nom,publicationScientifiqueAuteur.auteur_id.prenom"
     );
 
 const PublicationsScientifiques = (

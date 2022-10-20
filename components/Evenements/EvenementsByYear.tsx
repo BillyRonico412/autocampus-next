@@ -22,7 +22,7 @@ const EvenementsByYear = (props: Props) => {
                         {isShow ? <FaCaretDown /> : <FaCaretRight />}
                     </p>
                     {isShow && (
-                        <div className="flex mt-2 flex-wrap gap-x-8 gap-y-8">
+                        <div className="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-8 justify-items-center">
                             {props.evenements.map((actu, i) => (
                                 <EvenementsItem key={i} evenement={actu} />
                             ))}

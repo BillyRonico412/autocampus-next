@@ -1,10 +1,10 @@
-import {
-    GetServerSideProps, InferGetServerSidePropsType, InferGetStaticPropsType
-} from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { FaProjectDiagram } from "react-icons/fa";
 import { ProjetProps } from ".";
 import Content from "../../components/Common/Content";
+import EnSavoirPlus from "../../components/Common/EnSavoirPlus";
 import Layout2 from "../../components/Common/Layout2";
+import ScrollHorizontalInfiniteImageContent from "../../components/ScrollHorizontalInfinite/ScrollHorizontalInfiniteImageContent";
 import { getElementInApi } from "../../utils/variables";
 
 export const getServerSideProps: GetServerSideProps<{
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<{
         };
     }
     const projet = await getElementInApi<ProjetProps>(
-        `/items/projet/${context.params.projet}?filter[status][_eq]=published&fields=*,projetPlateforme.nom,projetMotcle.*.libelle`
+        `/items/projet/${context.params.projet}?filter[status][_eq]=published&fields=*,projetPlateforme.nom,projetMotcle.*.libelle,projetPartenaire.partenaire_id.logo`
     );
     if (!projet.data) {
         return {
@@ -30,14 +30,16 @@ export const getServerSideProps: GetServerSideProps<{
     };
 };
 
-const projet = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const projet = (
+    props: InferGetServerSidePropsType<typeof getServerSideProps>
+) => {
     const filArianes = [
         {
             text: "Accueil",
             link: "/",
         },
         {
-            text: "Projets",
+            text: "Nos projets",
             link: "/projets",
         },
         {
@@ -56,6 +58,22 @@ const projet = (props: InferGetServerSidePropsType<typeof getServerSideProps>) =
                 )}
             >
                 <Content content={props.projet.contenu} />
+                <EnSavoirPlus />
+                {props.projet.projetPartenaire.length > 0 && (
+                    <div className="flex flex-col gap-y-8">
+                        <p className="text-2xl font-bold mt-4">
+                            <span className="">Partenaires du </span>
+                            <span className="text-primary-old">projet</span>
+                        </p>
+                        <ScrollHorizontalInfiniteImageContent
+                            imagesSrc={props.projet.projetPartenaire.map(
+                                (partenaire) => partenaire.partenaire_id.logo
+                            )}
+                            height={200}
+                            width={200}
+                        />
+                    </div>
+                )}
             </Layout2>
         </>
     );

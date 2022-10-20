@@ -18,9 +18,15 @@ const VuDansMediaCard = (props: Props) => {
             }}
         >
             <div>
-                <img
-                    src={props.image ? props.image : linkImageDefaultVuMedia}
-                    className="object-cover w-[320px] h-[200px]"
+                <Image
+                    src={
+                        props.image
+                            ? getImageApi(props.image)
+                            : linkImageDefaultVuMedia
+                    }
+                    width={320}
+                    height={200}
+                    className="object-cover"
                 />
             </div>
             <div className="px-4 py-2 h-[320px] overflow-hidden">

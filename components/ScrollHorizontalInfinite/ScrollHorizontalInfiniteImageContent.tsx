@@ -7,6 +7,7 @@ type Props = {
     imagesSrc: string[];
     width: number;
     height: number;
+    autoplay?: boolean;
 };
 
 const ScrollHorizontalInfiniteImageContent = (props: Props) => {
@@ -39,11 +40,9 @@ const ScrollHorizontalInfiniteImageContent = (props: Props) => {
         Math.floor(props.imagesSrc.length / numberImgOnContainer) +
         (props.imagesSrc.length % numberImgOnContainer > 0 ? 1 : 0);
 
-    console.log(container);
-
     return (
         <div style={{ height: `${props.height}px` }}>
-            <Carousel autoPlay infiniteLoop showThumbs={false}>
+            <Carousel autoPlay={props.autoplay} infiniteLoop showThumbs={false}>
                 {new Array(numberContainer).fill(0).map((_, i) => (
                     <ScrollHorizontalInfiniteImageFrame
                         key={i}

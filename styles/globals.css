@@ -46,3 +46,11 @@ body {
 .content p {
     @apply mt-2;
 }
+
+.content table th {
+    @apply bg-gray-200;
+}
+
+.content table td {
+    @apply border px-4 py-1;
+}

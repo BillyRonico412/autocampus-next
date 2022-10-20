@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import { MenuItemInterface } from "./interface";
+import { Notyf } from "notyf";
 
 export const menuItems: MenuItemInterface[] = [
     {
@@ -79,16 +80,13 @@ export const menuItems: MenuItemInterface[] = [
         ],
     },
     {
-        title: "Plateformes",
+        title: "Nos plateformes",
         childrens: [],
+        link: "/plateformes",
     },
     {
         title: "Contactez-nous",
         link: "/contact",
-        childrens: [],
-    },
-    {
-        title: "Offres d’emplois",
         childrens: [],
     },
 ];

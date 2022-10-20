@@ -19,7 +19,12 @@ const ProjetSearch = (props: Props) => {
     return (
         <div className="shadow border px-4 py-4 rounded flex flex-col gap-y-4 w-full">
             <p className="text-xl font-semibold">Rechercher</p>
-            <Search placeholder="Rechercher un projet" />
+            <Search
+                placeholder="Rechercher un projet"
+                onSearch={(s) => {
+                    dispatch(projetActions.setSearch(s));
+                }}
+            />
             <Select
                 text="Annee"
                 onChange={onChangeAnneeFilter}

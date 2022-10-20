@@ -1,16 +1,16 @@
 import { InferGetServerSidePropsType } from "next";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import Layout1 from "../../components/Common/Layout1";
-import EvenementsFilter from "../../components/Evenements/EvenementsFilter";
-import EvenementsSearch from "../../components/Evenements/EvenementsSearch";
-import { evenementsActions } from "../../components/Evenements/evenementsStore";
-import { EvenementProps, FilArianeInterface } from "../../utils/interface";
-import { RootState } from "../../utils/store";
-import { getServerSidePropsApi } from "../../utils/variables";
+import Layout1 from "../../../components/Common/Layout1";
+import EvenementsFilter from "../../../components/Evenements/EvenementsFilter";
+import EvenementsSearch from "../../../components/Evenements/EvenementsSearch";
+import { evenementsActions } from "../../../components/Evenements/evenementsStore";
+import { EvenementProps, FilArianeInterface } from "../../../utils/interface";
+import { RootState } from "../../../utils/store";
+import { getServerSidePropsApi } from "../../../utils/variables";
 
 export const getServerSideProps = getServerSidePropsApi<EvenementProps>(
-    "/items/evenement?fields=*,evenementProjet.titre"
+    "/items/evenement?filter[status][_eq]=published&fields=*,evenementProjet.titre"
 );
 
 const evenements = (

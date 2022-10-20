@@ -25,7 +25,11 @@ export interface EvenementProps {
 
 export type VuDansMediasType = {
     lien: string;
-    metadata: MetadataInformation;
+    metadata: {
+        title: string;
+        description: string;
+        banner: string;
+    };
     projet: string;
 };
 
@@ -38,6 +42,26 @@ export interface EvenementProps {
     evenementMotcle: {
         motcle_id: {
             libelle: string;
+        };
+    }[];
+}
+
+export interface PlateformesProps {
+    id: number;
+    contenu: string;
+    couleur: string;
+    description: string;
+    externalLink: string;
+    image: string;
+    nom: string;
+    plateformeMotcle: {
+        motcle_id: {
+            libelle: string;
+        };
+    }[];
+    plateformePartenaire: {
+        partenaire_id: {
+            logo: string;
         };
     }[];
 }

@@ -1,14 +1,13 @@
-import "../styles/globals.css";
+import { motion } from "framer-motion";
 import type { AppProps } from "next/app";
-import FooterMobile from "../components/Main/Footer/FooterMobile";
-import NavbarDesktop from "../components/Main/Navbar/NavbarDesktop/NavbarDesktop";
-import FooterTablet from "../components/Main/Footer/FooterTablet";
-import FooterDesktop from "../components/Main/Footer/FooterDesktop";
-import NavbarMobile from "../components/Main/Navbar/NavbarMobile/NavbarMobile";
 import { Provider } from "react-redux";
+import FooterDesktop from "../components/Main/Footer/FooterDesktop";
+import FooterMobile from "../components/Main/Footer/FooterMobile";
+import FooterTablet from "../components/Main/Footer/FooterTablet";
+import NavbarDesktop from "../components/Main/Navbar/NavbarDesktop/NavbarDesktop";
+import NavbarMobile from "../components/Main/Navbar/NavbarMobile/NavbarMobile";
+import "../styles/globals.css";
 import { store } from "../utils/store";
-import { AnimatePresence, motion } from "framer-motion";
-import { Router, useRouter } from "next/router";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
     return (

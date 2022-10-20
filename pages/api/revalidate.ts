@@ -10,10 +10,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         allPath.forEach((path) => {
             res.revalidate(path);
         });
-        console.log("Revalidate !!!")
         return res.status(200).end();
     } catch (err) {
-        console.log(err);
         return res.status(500).end();
     }
 }

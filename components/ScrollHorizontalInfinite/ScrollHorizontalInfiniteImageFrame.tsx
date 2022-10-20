@@ -17,13 +17,13 @@ const ScrollHorizontalInfiniteImageFrame = (props: Props) => {
             }}
         >
             {props.imagesSrc.map((imgSrc, i) => (
-                <div key={i}>
+                <div key={i} className="flex justify-center items-center">
                     <Image
                         src={getImageApi(imgSrc)}
                         alt={imgSrc}
-                        width={props.width}
-                        height={props.height}
-                        className="object-cover "
+                        width={props.width - 20}
+                        height={props.height - 20}
+                        className="object-cover"
                     />
                 </div>
             ))}

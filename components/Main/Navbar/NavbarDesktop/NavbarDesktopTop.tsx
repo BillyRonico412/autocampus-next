@@ -9,12 +9,7 @@ const NavbarDesktopTop = () => {
             <div className="flex items-center justify-center xl:hidden">
                 <Image src={autocampusLogo} alt="autocampus-logo" />
             </div>
-            <Search placeholder="Rechercher sur le site ..." />
-            <div className="flex items-center">
-                <a href="#" className="font-semibold">
-                    Offre d&apos;emploi
-                </a>
-            </div>
+            {/* <Search placeholder="Rechercher sur le site ..." /> */}
             <div className="flex items-center">
                 <Link href="/contact">
                     <span className="font-semibold cursor-pointer">Contact</span>

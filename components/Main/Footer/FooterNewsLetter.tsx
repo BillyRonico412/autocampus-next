@@ -21,7 +21,14 @@ const FooterNewsLetter = (props: Props) => {
                 className="w-full rounded-lg py-1 px-4 shadow"
                 placeholder="Votre adresse e-mail"
             />
-            <button className="bg-primary-old rounded-lg py-1 font-semibold w-32">
+            <button
+                className="bg-primary-old rounded-lg py-1 font-semibold w-32"
+                onClick={() => {
+                    window.alert(
+                        "La fonctionnalité news letter est en cours de developpement"
+                    );
+                }}
+            >
                 S&apos;inscrire
             </button>
         </div>

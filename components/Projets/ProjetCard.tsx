@@ -3,15 +3,16 @@ import ProjetCardBody from "./ProjetCardBody";
 import ProjetCardFooter from "./ProjetCardFooter";
 import ProjetCardHead from "./ProjetCardHead";
 
-type Props = {
+export type ProjetCardProps = {
     id: number;
     titre: string;
-    annee: number;
     description: string;
     image: string;
     nomPlateforme: string;
     motcles: string[];
 };
+
+type Props = ProjetCardProps;
 
 const ProjetCard = (props: Props) => {
     const router = useRouter();
@@ -20,7 +21,7 @@ const ProjetCard = (props: Props) => {
     };
     return (
         <div
-            className="relative w-[300px] h-[300px] border shadow rounded overflow-hidden cursor-pointer"
+            className="relative w-[300px] h-[300px] border shadow rounded overflow-hidden cursor-pointer text-left"
             onClick={onClickCardProjet}
         >
             <ProjetCardHead nomPlateforme={props.nomPlateforme} />

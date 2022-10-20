@@ -38,7 +38,7 @@ export type TheseStageByApi = {
 };
 
 export const getServerSideProps = getServerSidePropsApi<TheseStageByApi>(
-    "/items/theseStage?fields=*,theseStageProjet.projet_id.titre,theseStageProjet.projet_id.id,theseStageMotcle.motcle_id.libelle,theseStageAuteur.nom,theseStageAuteur.prenom"
+    "/items/theseStage?filter[status][_eq]=published&fields=*,theseStageProjet.projet_id.titre,theseStageProjet.projet_id.id,theseStageMotcle.motcle_id.libelle,theseStageAuteur.nom,theseStageAuteur.prenom"
 );
 
 const TheseStage = (
