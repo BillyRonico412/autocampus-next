@@ -1,7 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../utils/store";
-import { publicationsScientifiquesActions } from "../PublicationsScientifiques/publicationsScientifiquesStore";
-import { theseStageActions } from "../TheseStage/theseStateStore";
+import { useDispatch } from "react-redux";
 import ArticleSearch from "./ArticleSearch";
 import { ArticleEnum, useArticleValues } from "./utils";
 

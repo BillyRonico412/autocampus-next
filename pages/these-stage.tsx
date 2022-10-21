@@ -86,12 +86,12 @@ const TheseStage = (
                                 (projet) => projet.projet_id.titre
                             ),
                         }))}
-                        type={ArticleEnum.PublicationScientifique}
+                        type={ArticleEnum.TheseStage}
                     />
                 </div>
                 <div className="hidden md:block md:w-[400px]">
                     <ArticleGenericSearch
-                        type={ArticleEnum.PublicationScientifique}
+                        type={ArticleEnum.TheseStage}
                     />
                 </div>
             </div>

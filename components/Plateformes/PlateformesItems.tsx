@@ -14,7 +14,7 @@ type Props = {
 
 const PlateformesItems = (props: Props) => {
     return (
-        <div className="flex gap-x-8 gap-y-8 flex-wrap">
+        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-y-8 justify-items-center">
             {props.plateformes.map((plateforme, i) => (
                 <div>
                     <PlateformesCard
